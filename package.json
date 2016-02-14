@@ -3,12 +3,13 @@
   "main": "./lib/glow",
   "version": "0.0.0",
   "description": "atom status bar indicator",
-  "keywords": [
-  ],
-  "activationCommands": {
-  },
+  "keywords": [],
+  "activationCommands": {},
   "repository": "https://github.com/arussellsaw/glow",
   "license": "MIT",
+  "dependencies": {
+    "emissary": "1.x"
+  },
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
@@ -16,14 +17,6 @@
     "status-bar": {
       "versions": {
         "^1.0.0": "consumeStatusBar"
-      }
-    }
-  },
-  "providedServices": {
-    "glow": {
-      "description": "glowing icon in status bar",
-      "versions": {
-        "1.0.0": "provideGlow"
       }
     }
   }

@@ -1,10 +1,11 @@
 module.exports =
 class GlowView
   element = null
-  constructor: (serializedState) ->
+  constructor: (name) ->
     # Create root element
     @element = document.createElement('div')
     @element.classList.add('glow')
+    @element.title = name
     @element.classList.add('inline-block')
 
 
