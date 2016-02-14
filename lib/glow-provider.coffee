@@ -8,6 +8,7 @@ class GlowProvider
 
   statusBar: null
   views: {}
+  dispatch: null
 
   constructor: (statusBar) ->
     @statusBar = statusBar
@@ -16,13 +17,24 @@ class GlowProvider
   getGoPlus: (pkg) ->
     if pkg.name is 'go-plus'
       @dispatch = pkg.mainModule.getDispatch()
-      @subscribe(@dispatch.on('messages-collected', (event) => @handleEvent(event)))
+      @subscribe(@dispatch.on('dispatch-complete', () => @handleFinish()))
+      @subscribe(@dispatch.on('dispatch-start', () => @handleStart()))
 
-  handleEvent: (event) ->
-    if event is 0
+  handleStart: ->
+    @blue()
+
+  handleFinish: ->
+    if @dispatch.messages.length is 0
       @green()
     else
-      @red()
+      @haserror = false
+      for key, message of @dispatch.messages
+        if message.type is 'error'
+          @haserror = true
+      if @haserror
+        @red()
+      else
+        @color('#f1d023')
 
   newGlow: (name) ->
     gv = new GlowView(name)
