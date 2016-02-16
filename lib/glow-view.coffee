@@ -6,7 +6,7 @@ class GlowView
     @element = document.createElement('div')
     @element.classList.add('glow')
     @element.title = name
-    @element.classList.add('inline-block')
+    @element.classList.add('glow-inline-block')
 
 
   # Returns an object that can be retrieved when package is activated

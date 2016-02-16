@@ -1,7 +1,7 @@
 {
   "name": "glow",
   "main": "./lib/glow",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "atom status bar indicator",
   "keywords": [],
   "activationCommands": {},
